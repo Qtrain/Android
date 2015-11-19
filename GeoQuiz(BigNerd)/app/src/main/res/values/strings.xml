@@ -3,5 +3,23 @@
 
     <string name="true_button">True</string>
     <string name="false_button">False</string>
-    <string name="question_text">Constantinople is larger than your mom</string>
+    <string name="correct_toast">That is correct</string>
+    <string name="incorrect_toast">Wrong!!!!!</string>
+    <string name="action_settings">Bugs are annoying</string>
+    <string name="next_button">next</string>
+    <string name="previous_button">previous</string>
+    <string name="question_oceans">How many oceans are there in the world?</string>
+    <string name="question_tits">Tits are better than ass?</string>
+    <string name="question_mideast">The something something does something something.</string>
+    <string name="question_asia">Something with asia and asians asianing</string>
+
+    //strings added (p 91)
+    <string name="cheat_button">Cheat</string>
+    <string name="warning_text">Are you sure you want to do this bitch?</string>
+    <string name="show_answer_button">Show Answer</string>
+    <string name="judgment_toast">You are a cheater, hang your head in shame.</string>
+    <string name="title_activity_cheat">CheatActivity</string>
+
+    <string name="hello_world">Hello world!</string>
+    
 </resources>

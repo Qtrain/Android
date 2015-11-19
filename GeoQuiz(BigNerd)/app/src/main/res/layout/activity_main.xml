@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="28dp"
-        android:text="@string/question_text"/>
+        android:id="@+id/question_text_view"/>
 
     <LinearLayout
         android:orientation="horizontal"
@@ -23,14 +23,37 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/true_button"
+        android:id="@+id/true_button"
         android:layout_gravity="right"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/false_button"
+        android:id="@+id/false_button"
         />
 
 
+    </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/next_button"
+        android:id="@+id/next_button"
+        android:layout_gravity="center_horizontal"/>
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="previous"
+        android:id="@+id/previous_button"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cheat_button"
+        android:id="@+id/cheat_button"
+        android:layout_gravity="center_horizontal"/>
 </LinearLayout>
-              </LinearLayout>

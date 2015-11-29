@@ -14,8 +14,8 @@ public class AddressCollection {
         return addressList.size() >= MAX_ADDRESS_COUNT;
     }
 
-    public int addAddresses(AddressAttributeObjects addressObject) throws Exception {
-        if(!isAddressLimitReached()) {
+    public int addAddress(AddressAttributeObjects addressObject) throws Exception {
+        if(isAddressLimitReached()) {
             throw (new Exception("address limit reached"));
         }
         addressList.add(addressObject);

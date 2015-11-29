@@ -3,8 +3,12 @@ package com.macbook.homeworkthree;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-
+import android.util.Log;
 public class AddressStrongTypeIntent {
+
+    //private static final String TAG = "IntentActivity";
+
+
 
     public String first;
     public String last;
@@ -14,9 +18,9 @@ public class AddressStrongTypeIntent {
     public String zip;
 
     public enum ActionType{
-        Add,
-        Edit,
-        Delete
+        ADD,
+        EDIT,
+        DELETE
     }
 
     ActionType action;
@@ -38,10 +42,12 @@ public class AddressStrongTypeIntent {
             isSet = Boolean.valueOf(bundle.getString("isSet"));
 
             action = ActionType.values()[bundle.getInt("action", 0)];
-            addressIndex = bundle.getInt("addresssIndex");
+            addressIndex = bundle.getInt("addressIndex");
 
         } catch (Exception ex) {
+            //Log.d(TAG, "intent", new Exception());
             ex.printStackTrace();
+
         }
     }
 
@@ -65,6 +71,8 @@ public class AddressStrongTypeIntent {
         town = addressAttributes.town;
         state = addressAttributes.state;
         zip = addressAttributes.zip;
+        this.action = action;
+        this.addressIndex = addressIndex;
 
     }
 
@@ -80,6 +88,8 @@ public class AddressStrongTypeIntent {
         intent.putExtra("town", town);
         intent.putExtra("state", state);
         intent.putExtra("zip", zip);
+        intent.putExtra("action", action.ordinal());
+        intent.putExtra("addressIndex", addressIndex);
         intent.putExtra("isSet", isSet.toString());
     }
 

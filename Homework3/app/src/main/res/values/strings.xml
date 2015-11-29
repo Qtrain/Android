@@ -7,4 +7,14 @@
     <string name="delete">Delete</string>
     <string name="title_activity_address_entry">AddressEntry</string>
     <string name="recordNumber">Record Number</string>
+    <string name="firstName">First Name</string>
+    <string name="lastName">Last Name</string>
+    <string name="address">Address</string>
+    <string name="town">Town</string>
+    <string name="state">State</string>
+    <string name="zip">Zip</string>
+    <string name="personDetail">person detail</string>
+    <string name="ok">ok</string>
+    <string name="clear">Clear</string>
+    <string name="cancel">Cancel</string>
 </resources>

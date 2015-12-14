@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Homework4</string>
+    <string name="recordNumber">Record Number</string>
+    <string name="nothing"/>
+    <string name="add">Add</string>
+    <string name="edit">Edit</string>
+    <string name="view">View</string>
+    <string name="delete">Delete</string>
+    <string name="title_activity_address_entry">AddressEntry</string>
+    <string name="first">First Name</string>
+    <string name="last">Last Name</string>
+    <string name="address">Address</string>
+    <string name="town">Town</string>
+    <string name="state">State</string>
+    <string name="zip">Zip</string>
+    <string name="save">Save</string>
+    <string name="clear">Clear</string>
+    <string name="cancel">Cancel</string>
+</resources>

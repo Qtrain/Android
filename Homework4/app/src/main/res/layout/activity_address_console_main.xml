@@ -8,7 +8,9 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.macbook.homework4.AddressConsoleMain">
+    tools:context="com.macbook.homework4.AddressConsoleMain"
+    android:orientation="vertical"
+    >
 
     <TextView
         android:id="@+id/textAddressMessage"

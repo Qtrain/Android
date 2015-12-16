@@ -2,8 +2,6 @@ package com.macbook.homeworkthree;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -28,7 +26,7 @@ public class AddressConsoleMain extends AppCompatActivity implements View.OnClic
     Button cmdDelete;
 
     //step 2 declare array
-    AddressCollection addresses = new AddressCollection();
+    AddressCollection mAddresses = new AddressCollection();
 
     //step 5 add toasts
     void showError(Exception message) {
@@ -44,7 +42,7 @@ public class AddressConsoleMain extends AppCompatActivity implements View.OnClic
     }
 
     void showAddressMessage(AddressAttributeObjects address) {
-        textAddressMessage.setText("Address: " + address.first + address.last + address.address + address.town + address.state + address.zip + " " + address.address);
+        textAddressMessage.setText("Address: " + " " + address.first + address.last + address.address + address.town + address.state + address.zip );
     }
 
     @Override
@@ -64,6 +62,8 @@ public class AddressConsoleMain extends AppCompatActivity implements View.OnClic
         cmdEdit.setOnClickListener(this);
         cmdDelete = (Button)findViewById(R.id.cmdDelete);
         cmdDelete.setOnClickListener(this);
+
+        textAddressMessage = (TextView) findViewById(R.id.textAddressMessage);
     }
 
     @Override
@@ -99,16 +99,16 @@ public class AddressConsoleMain extends AppCompatActivity implements View.OnClic
                         AddressAttributeObjects address = new AddressAttributeObjects(addressIntent.first, addressIntent.address, addressIntent.last, addressIntent.town, addressIntent.state, addressIntent.zip);
                         switch (addressIntent.action) {
                             case ADD:
-                                addresses.addAddress(address);
+                                mAddresses.addAddress(address);
                                 showAddressMessage(address);
                                 showInfo("Added");
                                 break;
                             case DELETE:
-                                addresses.removeAddress(addressIntent.addressIndex);
+                                mAddresses.removeAddress(addressIntent.addressIndex);
                                 showInfo("Deleted");
                                 break;
                             case EDIT:
-                                addresses.setAddress(addressIntent.addressIndex, address);
+                                mAddresses.setAddress(addressIntent.addressIndex, address);
                                 showAddressMessage(address);
                                 showInfo("Updated");
                                 break;
@@ -119,7 +119,7 @@ public class AddressConsoleMain extends AppCompatActivity implements View.OnClic
                         break;
                 }
             } catch (Exception ex) {
-                showError(ex);
+                showError("here" + ex);
 
             }
         }
@@ -128,17 +128,17 @@ public class AddressConsoleMain extends AppCompatActivity implements View.OnClic
     public void onClick(View v) {
         AddressStrongTypeIntent i;
         if (cmdAdd.getId() == v.getId()) {
-            if (!addresses.isAddressLimitReached()) {
+            if (!mAddresses.isAddressLimitReached()) {
                 i = new AddressStrongTypeIntent();
                 i.action = AddressStrongTypeIntent.ActionType.ADD;
                 startActivityForResult(i.getIntent(this, AddressEntry.class), ADDRESS_ENTRY);
             } else
-                showError("Max addresses reached");
+                showError("Max mAddresses reached");
         } else {
             try {
                 int addressIndex = Integer.parseInt(editRecordNumber.getText().toString());
 
-                AddressAttributeObjects address = addresses.getAddress(addressIndex);
+                AddressAttributeObjects address = mAddresses.getAddress(addressIndex);
                 if (cmdEdit.getId() == v.getId()) {
                     i = new AddressStrongTypeIntent(address, AddressStrongTypeIntent.ActionType.EDIT, addressIndex);
                     startActivityForResult(i.getIntent(this, AddressEntry.class), ADDRESS_ENTRY);
@@ -151,6 +151,7 @@ public class AddressConsoleMain extends AppCompatActivity implements View.OnClic
                     showAddressMessage(address);
                 }
             } catch (Exception ex) {
+                ex.printStackTrace();
                 showError(ex);
             }
         }

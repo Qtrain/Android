@@ -26,7 +26,6 @@ public class AddressStrongTypeIntent {
     ActionType action;
     int addressIndex = 0;
 
-    public Boolean isSet;
     Intent intent;
 
     //constructor 1
@@ -39,7 +38,6 @@ public class AddressStrongTypeIntent {
             town = bundle.getString("town");
             state = bundle.getString("state");
             zip = bundle.getString("zip");
-            isSet = Boolean.valueOf(bundle.getString("isSet"));
 
             action = ActionType.values()[bundle.getInt("action", 0)];
             addressIndex = bundle.getInt("addressIndex");
@@ -60,7 +58,6 @@ public class AddressStrongTypeIntent {
         state = "";
         zip = "";
         address = "";
-        isSet = false;
     }
 
     //constructor 3
@@ -90,7 +87,6 @@ public class AddressStrongTypeIntent {
         intent.putExtra("zip", zip);
         intent.putExtra("action", action.ordinal());
         intent.putExtra("addressIndex", addressIndex);
-        intent.putExtra("isSet", isSet.toString());
     }
 
     public Intent getIntent() {
